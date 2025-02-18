@@ -1,0 +1,61 @@
+<?php
+$urls = [
+    'http://142.93.122.88/',
+    'http://167.172.135.185/',
+    'http://ragchewnetwork.ddns.net:8080/supermon2/link.php?nodes=60568,6487',
+    'http://ragchewgmrshub.ddns.net/supermon2/link.php?nodes=531048,531049',
+
+];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amateur Radio Network Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-rows: repeat(auto-fit, minmax400px, 1fr));
+            gap: 2px;
+            width: 100%;
+            max-width: 1280px;
+            height: 90vh;
+        }
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <?php foreach ($urls as $url): ?>
+            <div class="grid-item">
+                <iframe src="<?php echo htmlspecialchars($url); ?>"></iframe>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</body>
+</html>
